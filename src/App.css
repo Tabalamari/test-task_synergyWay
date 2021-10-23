@@ -15,10 +15,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-width: 100px;
-height: 50px;
-background-color: rgb(240, 156, 156);
-box-shadow: inset 2px 2px 15px 2px rgb(216, 32, 32);
+    width: 100px;
+    height: 50px;
+    background-color: rgb(240, 156, 156);
+    box-shadow: inset 2px 2px 15px 2px rgb(216, 32, 32);
 
 
 }
@@ -28,7 +28,6 @@ box-shadow: inset 2px 2px 15px 2px rgb(216, 32, 32);
 
 /* CONTENT */
 .products {
-    /* width: 900px; */
     display: flex;
     justify-content: space-evenly;
     margin: 100px 0;
@@ -37,9 +36,9 @@ box-shadow: inset 2px 2px 15px 2px rgb(216, 32, 32);
 .product-wrapper {
     width: 220px;
     margin: 20px 0;
-    padding: 5px 15px 5px 5px;
+    padding: 15px 20px 5px 15px;
     background-color: rgb(250, 248, 248);
-    text-align: right;
+    text-align: left;
 }
 .price {
     display: flex;
