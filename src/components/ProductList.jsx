@@ -3,8 +3,8 @@ import Data from '/Users/tabalamari/Documents/test-tasks/test-task_synergyWay/sr
 
 class AddToBasket extends React.Component {
     render() {
-        return(
-            <button>Add to Basket</button>
+        return (
+            <button onClick={this.props.onClick}>Add to Basket</button>
         )
     }
 }
@@ -20,7 +20,12 @@ class Images extends React.Component {
 class Product extends React.Component {
     constructor(props) {
         super(props);
+        this.addToCart = this.addToCart.bind(this);
     }
+    addToCart() {
+        localStorage.setItem(this.props.id, 'yes');
+    }
+
     render() {
         return (
             <div>
@@ -30,7 +35,7 @@ class Product extends React.Component {
                     <p>{this.props.label}</p>
                     <div className="price">
                         <p>{this.props.price}</p>
-                        <AddToBasket />
+                        <AddToBasket onClick={this.addToCart} />
                     </div>
                 </div>
             </div>
