@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import Data from '/Users/tabalamari/Documents/test-tasks/test-task_synergyWay/src/data.json';
 
+
+
 class AddToBasket extends React.Component {
+   
     render() {
         return (
+
             <button onClick={this.props.onClick}>Add to Basket</button>
         )
     }
@@ -22,10 +26,21 @@ class Product extends React.Component {
         super(props);
         this.addToCart = this.addToCart.bind(this);
     }
-    addToCart() {
-        localStorage.setItem(this.props.id, 'yes');
+addToCart(){
+    let basket = localStorage.getItem('basket');
+    if (!basket){
+        basket = [];
     }
+    else {
+        basket = JSON.parse(localStorage.getItem('basket'))
+    }
+    const prod = {};
+    prod.id = this.props.id;
+    basket.push(prod);
 
+    const basketString = JSON.stringify(basket);
+    localStorage.setItem('basket', basketString);
+}
     render() {
         return (
             <div>
