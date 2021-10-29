@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Data from '/Users/tabalamari/Documents/test-tasks/test-task_synergyWay/src/data.json';
-
+import Images from './Images';
 
 
 class AddToBasket extends React.Component {
@@ -13,20 +13,14 @@ class AddToBasket extends React.Component {
     }
 }
 
-class Images extends React.Component {
-    render() {
-        return (
-            <img src={this.props.src} />
-        )
-    }
-}
+
 
 class Product extends React.Component {
     constructor(props) {
         super(props);
-        this.addToCart = this.addToCart.bind(this);
+        this.addToBasket = this.addToBasket.bind(this);
     }
-addToCart(){
+addToBasket(){
     let basket = localStorage.getItem('basket');
     if (!basket){
         basket = [];
@@ -36,6 +30,10 @@ addToCart(){
     }
     const prod = {};
     prod.id = this.props.id;
+    prod.name = this.props.name;
+    prod.src = this.props.src;
+    prod.price = this.props.price;
+
     basket.push(prod);
 
     const basketString = JSON.stringify(basket);
@@ -50,7 +48,7 @@ addToCart(){
                     <p>{this.props.label}</p>
                     <div className="price">
                         <p>{this.props.price}</p>
-                        <AddToBasket onClick={this.addToCart} />
+                        <AddToBasket onClick={this.addToBasket} />
                     </div>
                 </div>
             </div>
@@ -74,9 +72,10 @@ class ProductList extends React.Component {
             });
         return (
             <div className="products">
-                {products.map((item) => {
+                {products}
+                {/* {products.map((item) => {
                     return item
-                })}
+                })} */}
             </div>)
     }
 }
